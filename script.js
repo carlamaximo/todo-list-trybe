@@ -6,9 +6,10 @@ const listText = document.getElementById('lista-tarefas');
 btnAddText.addEventListener("click", addText)
 
 function addText() {
-  const listItem = document.createElement('li');
-  listItem.classList.add('item-lista-tarefas');
-  listItem.innerText = inputText.value;
-  listText.appendChild(listItem);
+    const inputValue = inputText.value;
+    const listItem = document.createElement('li');
+    listItem.innerText = inputValue;
+    listItem.classList.add('item-lista-tarefas');
+    listText.appendChild(listItem);
+    inputText.value = "" ;
 }
-addText()
