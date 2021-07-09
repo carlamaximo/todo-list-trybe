@@ -1,14 +1,14 @@
 // Requirement 05
 const inputText = document.getElementById('texto-tarefa');
-const btnAddText = document.getElementById('criar-tarefa');
+const btnAddText = document.querySelector('#criar-tarefa');
 const listText = document.getElementById('lista-tarefas');
 
-btnAddText.addEventListener("click", addText);
+btnAddText.addEventListener("click", addText)
 
-function addText(event) {
-  const textContent = inputText.value;
+function addText() {
   const listItem = document.createElement('li');
-  listItem.innerText = textContent;
   listItem.classList.add('item-lista-tarefas');
+  listItem.innerText = inputText.value;
   listText.appendChild(listItem);
 }
+addText()
