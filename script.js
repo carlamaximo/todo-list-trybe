@@ -13,3 +13,8 @@ function addText() {
     listText.appendChild(listItem);
     inputText.value = "" ;
 }
+// Requirement 07
+function changeColor(listText) {
+  listText.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
+listText.addEventListener("click", changeColor);
