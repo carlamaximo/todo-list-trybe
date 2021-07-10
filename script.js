@@ -18,7 +18,7 @@ function changeColor(listText) {
   let arrayLi = document.getElementsByTagName('li');
   for(let i = 0; i < arrayLi.length; i += 1) {
     arrayLi[i].style.backgroundColor = "white";
-    arrayLi[i].style.textDecoration = 'none'
+    //arrayLi[i].style.textDecoration = 'none'
   }
   listText.target.style.backgroundColor = 'rgb(128, 128, 128)';
   listText.target.classList.add('completed');
@@ -32,3 +32,12 @@ function removeLineThrough(listText) {
 }
 
 listText.addEventListener("dblclick", removeLineThrough);
+
+// Requirement 10
+const btnClear = document.getElementById('apaga-tudo');
+
+function btnClearList(){
+  listText.innerHTML = "";
+}
+
+btnClear.addEventListener('click', btnClearList);
