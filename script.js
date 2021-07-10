@@ -13,8 +13,12 @@ function addText() {
     listText.appendChild(listItem);
     inputText.value = "" ;
 }
-// Requirement 07
+// Requirements 07 and 08
 function changeColor(listText) {
+  let arrayLi = document.getElementsByTagName('li');
+  for(let i = 0; i < arrayLi.length; i += 1) {
+    arrayLi[i].style.backgroundColor = "white";
+  }
   listText.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 listText.addEventListener("click", changeColor);
