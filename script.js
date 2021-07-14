@@ -17,8 +17,9 @@ btnAddText.addEventListener('click', addText);
 function changeColor(listText) {
   let arrayLi = document.getElementsByTagName('li');
   for (let i = 0; i < arrayLi.length; i += 1) {
-    arrayLi[i].style.backgroundColor = 'white';
-    listText.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    arrayLi[i].classList.remove('selected');
+    //arrayLi[i].style.backgroundColor = 'white';
+    //listText.target.style.backgroundColor = 'rgb(128, 128, 128)';
     listText.target.classList.add('selected');
   }
 }
@@ -71,22 +72,50 @@ window.onload = load(); // Função será executada quando o navegador carregar 
 btnSave.addEventListener('click', dataSave);
 
 // Requirement 13
-///const btnUp = document.getElementById('mover-cima');
-//const btndown = document.getElementById('mover-baixo');
+// Referência: https://github.com/tryber/sd-014-a-project-todo-list/blob/mauricio-leite-todo-list-project/script.js
+// Agradeço ao Maurício Leite da turma 14, tribo B, por me permitir usar a mesma lógica que ele usou nessa parte do código dele!
+const btnUp = document.getElementById('mover-cima');
+const btndown = document.getElementById('mover-baixo');
 
-/*function moveUp() {
-  
+function moveUp() {
+  if (document.querySelectorAll('.selected').length > 0) {
+    const selected = document.querySelector('.selected').innerText;
+    const selectedClass = document.querySelector('.selected').className;
+    const prevClass = document.querySelector('.selected').previousSibling.className;
+    const prevItem = document.querySelector('.selected').previousSibling.innerText;
 
+    if (prevItem !== undefined) {
+      document.querySelector('.selected').previousSibling.innerText = selected;
+      document.querySelector('.selected').innerText = prevItem;
+      document.querySelector('.selected').previousSibling.className = selectedClass;
+      document.querySelector('.selected').nextSibling.className = prevClass;
+    }
+  }
 }
 
+
 function moveDown() {
+  if (document.querySelectorAll('.selected').length > 0) {
+    const selected = document.querySelector('.selected').innerText;
+    const selectedClass = document.querySelector('.selected').className;
+    const nextItem = document.querySelector('.selected').nextSibling;
 
-}*/
+    if (nextItem !== null) {
+      const nextClass = document.querySelector('.selected').nextSibling.className;
+      document.querySelector('.selected').innerText = nextItem.innerText;
+      document.querySelector('.selected').nextSibling.className = selectedClass;
 
-//btnUp.addEventListener('click', moveUp);
-//btndown.addEventListener('click', moveDown);
+      document.querySelector('.selected').nextSibling.innerText = selected;
+      document.querySelector('.selected').className = nextClass;
+    }
+  }
+}
+
+btnUp.addEventListener('click', moveUp);
+btndown.addEventListener('click', moveDown);
 
 // Requirement 14
+// Rererence: https://pt.stackoverflow.com/questions/4605/remover-elemento-da-p%C3%A1gina-com-javascript
 const btnRmSelected = document.getElementById('remover-selecionado');
 
 function removeSelected() {
