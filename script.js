@@ -14,12 +14,12 @@ function addText() {
 btnAddText.addEventListener('click', addText);
 
 // Requirements 07, 08
-function changeColor(listText) {
-  let arrayLi = document.getElementsByTagName('li');
+function changeColor() {
+  const arrayLi = document.getElementsByTagName('li');
   for (let i = 0; i < arrayLi.length; i += 1) {
     arrayLi[i].classList.remove('selected');
-    //arrayLi[i].style.backgroundColor = 'white';
-    //listText.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    // arrayLi[i].style.backgroundColor = 'white';
+    // listText.target.style.backgroundColor = 'rgb(128, 128, 128)';
     listText.target.classList.add('selected');
   }
 }
@@ -29,9 +29,9 @@ listText.addEventListener('click', changeColor);
 // Requirement 09
 function addLineThrough(event) {
   if (event.target.classList.contains('completed')) {
-  event.target.classList.remove('completed');
+    event.target.classList.remove('completed');
   } else {
-  event.target.classList.add('completed');
+    event.target.classList.add('completed');
   }
 }
 listText.addEventListener('dblclick', addLineThrough);
@@ -92,7 +92,6 @@ function moveUp() {
     }
   }
 }
-
 
 function moveDown() {
   if (document.querySelectorAll('.selected').length > 0) {
